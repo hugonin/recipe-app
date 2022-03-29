@@ -1,4 +1,6 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useFetch } from "../hooks/useFetch.js";
 
 export default function Create() {
   const [title, setTitle] = useState("");
@@ -7,10 +9,21 @@ export default function Create() {
   const [newIngredient, setNewIngredient] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const ingredientInput = useRef(null);
+  const navigate = useNavigate();
+
+  const { postData, data, error } = useFetch(
+    "http://localhost:3000/recipes",
+    "POST"
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(title, method, cookingTime, ingredients);
+    postData({
+      title,
+      ingredients,
+      method,
+      cookingTime: cookingTime + " minutes",
+    });
   };
 
   const handleAdd = (e) => {
@@ -23,6 +36,15 @@ export default function Create() {
     setNewIngredient("");
     ingredientInput.current.focus();
   };
+
+  // redirect the user when we get data response
+  useEffect(() => {
+    if (data) {
+      navigate("/ ");
+    } else if (error) {
+      console.log(error);
+    }
+  }, [data, navigate, error]);
 
   return (
     <div className="container mx-auto px-4">

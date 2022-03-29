@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 
 export default function RecipeList({ recipes }) {
+
+  if (recipes.length === 0) {
+    return <div className="alert alert-error mt-2">No recipes to load</div>
+
+  }
+
   return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-8 p-8">
         {recipes.map((recipe) => (
