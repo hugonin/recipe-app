@@ -1,3 +1,29 @@
+:root {
+  @layer .light;
+}
+
+.dark {
+  --color-base-100: #2a303c;
+  --color-primary: #6419e6;
+  --color-secondary: #d926a9;
+  --color-accent: #1fb2a6;
+}
+
+.light {
+  --color-base-100: #e7e7e9;
+  --color-primary: #ffc9f8;
+  --color-secondary: #207eea;
+  --color-accent: #a48de8;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    @apply h-full;
+  }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

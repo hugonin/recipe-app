@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "../hooks/useTheme";
 
 export default function Searchbar() {
   const [term, setTerm] = useState("");
@@ -15,8 +16,10 @@ export default function Searchbar() {
     navigate(`/search?q=${term}`);
   };
 
+  const { mode } = useTheme();
+
   return (
-    <div className="flex items-center justify-center bg-gray-800">
+    <div className="flex items-center justify-center">
       <form onSubmit={handleSubmit}>
         <div className="relative text-gray-600 focus-within:text-gray-400">
           <span className="absolute inset-y-0  left-0 flex items-center pl-2">
@@ -41,11 +44,10 @@ export default function Searchbar() {
           <input
             type="search"
             name="q"
-            className="py-2 text-sm text-white bg-gray-900 rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900"
+            className={`py-2 text-sm text-white ${mode} bg-base rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900`}
             placeholder="Search..."
-            autocomplete="off"
+            autoComplete="off"
             onChange={(e) => setTerm(e.target.value)}
-
           />
         </div>
       </form>

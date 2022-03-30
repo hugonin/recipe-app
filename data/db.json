@@ -58,6 +58,17 @@
       "method": "do it like this and turn it like taht",
       "cookingTime": "14 minutes",
       "id": "YbHlkti"
+    },
+    {
+      "title": "Ndolé Veggie",
+      "ingredients": [
+        "Leaf",
+        "groundnuts",
+        "onions"
+      ],
+      "method": "Wash the leaves then wash again til you can't no more\n",
+      "cookingTime": "75 minutes",
+      "id": "eKka5ha"
     }
   ]
 }
