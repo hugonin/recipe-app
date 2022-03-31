@@ -34,7 +34,7 @@ Project is: _in progress_
 
 
 ## Inspiration
-Project based on Build Web Apps with React & Firebase by The Net Ninja  
+Project based on Build Web Apps with React & Firebase [@iamshaunjp](https://github.com/iamshaunjp) course 
 
 ## Contact
 Created by [@hugonin](https://github.com/hugonin) - feel free to contact me!
